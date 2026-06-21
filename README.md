@@ -15,6 +15,7 @@ Fake Store API and the Countries GraphQL API are free community-run services, so
 
 ## Project structure
 
+\`\`\`
 scripts/
 ├── rest/
 │   ├── load-test-k6io.js
@@ -27,7 +28,7 @@ scripts/
 results/
 ├── rest/
 └── graphql/
-
+\`\`\`
 
 ## How to run
 
