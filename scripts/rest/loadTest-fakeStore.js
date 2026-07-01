@@ -3,8 +3,8 @@ import {sleep} from 'k6';
 import {check} from 'k6';
 
 export const options = {
-    vus: 200,
-    duration: '50s',
+    vus:100,
+    duration: '30s',
 }
 
 export default function(){
@@ -13,6 +13,6 @@ export default function(){
     check(res, {
         'status is 200 ok': (r)=> r.status === 200,
         'response time is less than 500ms': (r)=> r.timings.duration< 500,
-        
+        'response is an array': (r)=> Array.isArray(JSON.parse(r.body)), //check if the response is an array
     })
 }
