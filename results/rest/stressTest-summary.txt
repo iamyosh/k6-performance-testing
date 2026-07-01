@@ -1,0 +1,49 @@
+PS C:\Users\MY FILE\OneDrive\Desktop\k6-performance-testing\scripts\rest> k6 run stressTest.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: stressTest.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 200 max VUs, 2m10s max duration (incl. graceful stop):
+              * default: Up to 200 looping VUs for 1m40s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 23042  230.074861/s
+    checks_succeeded...: 99.96% 23035 out of 23042
+    checks_failed......: 0.03%  7 out of 23042
+
+    ✓ status is 200
+    ✗ response time is below 1000ms
+      ↳  99% — ✓ 11514 / ✗ 7
+
+    HTTP
+    http_req_duration..............: avg=423.6ms  min=61.06ms  med=427.01ms max=2.28s p(90)=652.86ms p(95)=704.66ms
+      { expected_response:true }...: avg=423.6ms  min=61.06ms  med=427.01ms max=2.28s p(90)=652.86ms p(95)=704.66ms
+    http_req_failed................: 0.00%  0 out of 23042
+    http_reqs......................: 23042  230.074861/s
+
+    EXECUTION
+    iteration_duration.............: avg=874.23ms min=309.96ms med=851.23ms max=4.11s p(90)=1.25s    p(95)=1.3s    
+    iterations.....................: 11521  115.037431/s
+    vus............................: 2      min=2          max=200
+    vus_max........................: 200    min=200        max=200
+
+    NETWORK
+    data_received..................: 44 MB  436 kB/s
+    data_sent......................: 1.7 MB 17 kB/s
+
+
+
+
+running (1m40.2s), 000/200 VUs, 11521 complete and 0 interrupted iterations
+default ✓ [======================================] 000/200 VUs  1m40s
