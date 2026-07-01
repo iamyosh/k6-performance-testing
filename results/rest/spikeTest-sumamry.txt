@@ -1,0 +1,50 @@
+PS C:\Users\MY FILE\OneDrive\Desktop\k6-performance-testing\scripts\rest> k6 run spikeTest.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: spikeTest.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 300 max VUs, 1m30s max duration (incl. graceful stop):
+              * default: Up to 300 looping VUs for 1m0s over 4 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 5336    87.087907/s
+    checks_succeeded...: 100.00% 5336 out of 5336
+    checks_failed......: 0.00%   0 out of 5336
+
+    ✓ status is 200 ok
+
+    HTTP
+    http_req_duration..............: avg=600.23ms min=56.58ms med=585.49ms max=2.44s p(90)=1.01s p(95)=1.15s    
+      { expected_response:true }...: avg=600.23ms min=56.58ms med=585.49ms max=2.44s p(90)=1.01s p(95)=1.15s
+    http_req_failed................: 0.00%  0 out of 10672
+    http_reqs......................: 10672  174.175814/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.32s    min=1.29s   med=2.2s     max=9.9s  p(90)=3.19s p(95)=3.34s
+    iterations.....................: 5336   87.087907/s
+    vus............................: 6      min=1          max=300
+    vus_max........................: 300    min=300        max=300
+
+    NETWORK
+    data_received..................: 22 MB  364 kB/s
+    data_sent......................: 1.5 MB 25 kB/s
+
+
+
+
+running (1m01.3s), 000/300 VUs, 5336 complete and 0 interrupted iterations
+default ✓ [======================================] 000/300 VUs  1m0s
+
+
+//p(95) of 1150ms means 5% of users during the spike waited over a second for a response
