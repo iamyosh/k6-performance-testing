@@ -1,0 +1,50 @@
+PS C:\Users\MY FILE\OneDrive\Desktop\k6-performance-testing\scripts\rest> k6 run loadTest-fakeStore.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: loadTest-fakeStore.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: 100 looping VUs for 30s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 26508  868.15631/s
+    checks_succeeded...: 86.01% 22802 out of 26508
+    checks_failed......: 13.98% 3706 out of 26508
+
+    ✓ status is 200 ok
+    ✗ response time is less than 300ms
+      ↳  58% — ✓ 5130 / ✗ 3706
+    ✓ response is an array
+
+    HTTP
+    http_req_duration..............: avg=336.13ms min=209.24ms med=282.31ms max=1.27s p(90)=533.25ms p(95)=604.83ms
+      { expected_response:true }...: avg=336.13ms min=209.24ms med=282.31ms max=1.27s p(90)=533.25ms p(95)=604.83ms
+    http_req_failed................: 0.00%  0 out of 8836
+    http_reqs......................: 8836   289.385437/s
+
+    EXECUTION
+    iteration_duration.............: avg=342.86ms min=211.53ms med=284.37ms max=1.55s p(90)=534.93ms p(95)=608.02ms
+    iterations.....................: 8836   289.385437/s
+    vus............................: 100    min=100       max=100
+    vus_max........................: 100    min=100       max=100
+
+    NETWORK
+    data_received..................: 98 MB  3.2 MB/s
+    data_sent......................: 927 kB 30 kB/s
+
+
+
+
+running (0m30.5s), 000/100 VUs, 8836 complete and 0 interrupted iterations
+default ✓ [======================================] 100 VUs  30s
