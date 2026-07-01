@@ -16,3 +16,7 @@ export default function(){
         'response is an array': (r)=> Array.isArray(JSON.parse(r.body)), //check if the response is an array
     })
 }
+
+// Step 1 — r.body gets the raw response text
+// Step 2 — JSON.parse() converts it into real JavaScript data
+// Step 3 — Array.isArray() checks if that data is an array
