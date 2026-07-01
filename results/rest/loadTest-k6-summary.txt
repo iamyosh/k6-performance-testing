@@ -1,0 +1,49 @@
+PS C:\Users\MY FILE\OneDrive\Desktop\k6-performance-testing\scripts\rest> k6 run loadTest-k6.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: loadTest-k6.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 150 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: 150 looping VUs for 30s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 3514   108.747944/s
+    checks_succeeded...: 99.97% 3513 out of 3514
+    checks_failed......: 0.02%  1 out of 3514
+
+    ✓ status is 200 ok
+    ✗ response time is less than 500ms
+      ↳  99% — ✓ 1756 / ✗ 1
+
+    HTTP
+    http_req_duration..............: avg=189.66ms min=56.73ms med=248.7ms max=635.74ms p(90)=286.45ms p(95)=313.12ms
+      { expected_response:true }...: avg=189.66ms min=56.73ms med=248.7ms max=635.74ms p(90)=286.45ms p(95)=313.12ms
+    http_req_failed................: 0.00%  0 out of 3514
+    http_reqs......................: 3514   108.747944/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.68s    min=2.29s   med=2.35s   max=8.33s    p(90)=2.44s    p(95)=5.51s   
+    iterations.....................: 1757   54.373972/s
+    vus............................: 8      min=8         max=150
+    vus_max........................: 150    min=150       max=150
+
+    NETWORK
+    data_received..................: 7.9 MB 244 kB/s
+    data_sent......................: 681 kB 21 kB/s
+
+
+
+
+running (0m32.3s), 000/150 VUs, 1757 complete and 0 interrupted iterations
+default ✓ [======================================] 150 VUs  30s
